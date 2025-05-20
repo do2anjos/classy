@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  
+  <!-- Fonte Atkinson Hyperlegible para acessibilidade -->
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Estilos principais -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Script opcional -->
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Coluna esquerda: Login -->
+    <div class="left">
+      <img src="/classy-icon.png" alt="Ícone elegante" class="login-icon" />
+      <h2>Faça seu login</h2>
+
+      <!-- Botão do aluno -->
+      <button class="btn" onclick="window.location.href='/login-aluno'">
+        <img src="https://img.icons8.com/ios-filled/24/000000/student-male.png" alt="Ícone de aluno" />
+        Sou aluno
+      </button>
+
+      <!-- Botão do professor -->
+      <button class="btn" id="professorBtn">
+        <img src="https://img.icons8.com/ios-filled/24/000000/teacher.png" alt="Ícone de professor" />
+        Sou professor
+      </button>
+    </div>
+
+    <!-- Coluna direita: Citação inspiradora -->
+    <div class="right">
+      <div class="quote">
+        <div class="quote-icon">❝</div>
+        <div class="quote-text">
+          Tudo é um objeto. E objetos se comunicam por mensagens.
+        </div>
+        <div class="quote-author">
+          Alan Kay<br />
+          <span>Percursor da orientação a objetos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

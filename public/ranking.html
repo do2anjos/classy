@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranking de Pontos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      background-color: #f5f7fa;
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 230px;
+      background-color: #003b54;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 20px 0;
+      border-bottom-right-radius: 20px;
+      height: 100vh;
+    }
+
+    .sidebar .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .sidebar .profile img {
+      width: 80px;
+      border-radius: 50%;
+      background: #004d6d;
+      padding: 10px;
+    }
+
+    .sidebar .profile span {
+      margin-top: 10px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 12px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background-color: #00597f;
+    }
+
+    .nav-links img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .ranking-section {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-y: auto;
+    }
+
+    .ranking-content {
+      text-align: center;
+      width: 100%;
+      max-width: 620px;
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 40px 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .ranking-content img.icon {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    .ranking-content h1 {
+      font-size: 28px;
+      color: #003b54;
+      margin-bottom: 20px;
+    }
+
+    .filtros {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filtros input,
+    .filtros select {
+      padding: 8px 14px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      text-align: center;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    thead {
+      background-color: #f0f0f0;
+    }
+
+    tbody tr:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+
+    tbody tr:nth-child(1) { background-color: #fff9c4; font-weight: bold; }
+    tbody tr:nth-child(2) { background-color: #dcedc8; font-weight: bold; }
+    tbody tr:nth-child(3) { background-color: #ffe0b2; font-weight: bold; }
+
+    canvas {
+      max-width: 100%;
+      margin-top: 30px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .ranking-content {
+        padding: 20px;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      body {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="https://img.icons8.com/ios-filled/100/ffffff/user-male-circle.png" alt="Perfil"/>
+      <span>Aluno<br><small>aluno.ic25@uea.edu.br</small></span>
+    </div>
+    <nav class="nav-links">
+      <a href="home.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/home.png" /> Home</a>
+      <a href="forum.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/chat.png" /> Fórum</a>
+      <a href="aulas.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/classroom.png" /> Aulas</a>
+      <a href="exercicios.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/task.png" /> Exercícios</a>
+      <a href="certificados.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/certificate.png" /> Certificados</a>
+      <a href="configuracoes.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/settings.png" /> Configurações</a>
+    </nav>
+  </aside>
+
+  <!-- Conteúdo principal -->
+  <main class="ranking-section">
+    <div class="ranking-content">
+      <img class="icon" src="https://img.icons8.com/ios-filled/100/4a90e2/leaderboard.png" alt="Ícone de Ranking">
+      <h1>Ranking de Pontos</h1>
+
+      <div class="filtros">
+        <input type="text" id="filtro" placeholder="Buscar por nome, pontos, acertos" onkeyup="filtrarTabela()" />
+        <select id="turma">
+          <option value="todos">Todas as turmas</option>
+          <option value="a">Turma A</option>
+          <option value="b">Turma B</option>
+        </select>
+        <select id="periodo">
+          <option value="todos">Todos os períodos</option>
+          <option value="30">Últimos 30 dias</option>
+          <option value="7">Últimos 7 dias</option>
+        </select>
+      </div>
+
+      <table id="rankingTable">
+        <thead>
+          <tr>
+            <th onclick="ordenar(0)">#</th>
+            <th onclick="ordenar(1)">Nome</th>
+            <th onclick="ordenar(2)">Pontuação</th>
+            <th onclick="ordenar(3)">Acertos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr onclick="abrirModal('Ana Souza', 850, 17)">
+            <td>1</td>
+            <td>Ana Souza</td>
+            <td>850</td>
+            <td>17</td>
+          </tr>
+          <tr onclick="abrirModal('Lucas Pereira', 780, 15)">
+            <td>2</td>
+            <td>Lucas Pereira</td>
+            <td>780</td>
+            <td>15</td>
+          </tr>
+          <tr onclick="abrirModal('Mariana Lima', 680, 14)">
+            <td>3</td>
+            <td>Mariana Lima</td>
+            <td>680</td>
+            <td>14</td>
+          </tr>
+          <tr onclick="abrirModal('João Ribeiro', 510, 11)">
+            <td>4</td>
+            <td>João Ribeiro</td>
+            <td>510</td>
+            <td>11</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <canvas id="grafico" style="display: none;"></canvas>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal()">&times;</span>
+      <h3 id="modalNome"></h3>
+      <p><strong>Pontuação:</strong> <span id="modalPontuacao"></span></p>
+      <p><strong>Acertos:</strong> <span id="modalAcertos"></span></p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+  const dadosEvolucao = {
+    "Ana Souza": [5, 9, 12, 17],
+    "Lucas Pereira": [6, 8, 11, 15],
+    "Mariana Lima": [4, 6, 10, 14],
+    "João Ribeiro": [3, 5, 8, 11]
+  };
+
+  const graficoCtx = document.getElementById("grafico").getContext("2d");
+
+  const grafico = new Chart(graficoCtx, {
+    type: "line",
+    data: {
+      labels: ["Semana 1", "Semana 2", "Semana 3", "Semana 4"],
+      datasets: [{
+        label: "Acertos",
+        data: dadosEvolucao["Ana Souza"],
+        borderColor: "#003b54",
+        backgroundColor: "rgba(0, 59, 84, 0.1)",
+        pointStyle: 'circle',
+        tension: 0.3,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true } }
+    }
+  });
+
+  function atualizarGrafico(nome) {
+    if (dadosEvolucao[nome]) {
+      grafico.data.datasets[0].data = dadosEvolucao[nome];
+      grafico.data.datasets[0].label = `Acertos de ${nome}`;
+      grafico.update();
+    }
+  }
+
+  function abrirModal(nome, pontuacao, acertos) {
+    document.getElementById("modalNome").innerText = nome;
+    document.getElementById("modalPontuacao").innerText = pontuacao;
+    document.getElementById("modalAcertos").innerText = acertos;
+    document.getElementById("modal").style.display = "flex";
+  
+  atualizarGrafico(nome);
+  document.getElementById("grafico").style.display = "none";
+}
+
+  function fecharModal() {
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("grafico").style.display = "block";
+
+  }
+
+  // Ordenação e filtro (mantêm os mesmos)
+  function filtrarTabela() {
+    const filtro = document.getElementById("filtro").value.toLowerCase();
+    const linhas = document.querySelectorAll("#rankingTable tbody tr");
+    linhas.forEach(linha => {
+      const texto = linha.textContent.toLowerCase();
+      linha.style.display = texto.includes(filtro) ? "" : "none";
+    });
+  }
+
+  function ordenar(coluna) {
+    const tabela = document.getElementById("rankingTable");
+    let linhas = Array.from(tabela.rows).slice(1);
+    let ordenado = linhas.sort((a, b) => {
+      let A = a.cells[coluna].innerText;
+      let B = b.cells[coluna].innerText;
+      return coluna === 0 || coluna > 1 ? B - A : A.localeCompare(B);
+    });
+    const corpo = tabela.tBodies[0];
+    corpo.innerHTML = "";
+    ordenado.forEach(l => corpo.appendChild(l));
+  }
+
+  // Mensagem automática ao carregar
+  window.onload = () => {
+    const usuario = "Ana Souza";
+    const top3 = ["Ana Souza", "Lucas Pereira", "Mariana Lima"];
+    if (top3.includes(usuario)) {
+      alert("🎉 Parabéns, você está no Top 3 do ranking!");
+    }
+    atualizarGrafico(usuario); // mostra gráfico do usuário ao carregar
+  };
+</script>

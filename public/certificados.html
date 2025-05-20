@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      background-color: #f5f7fa;
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 230px;
+      background-color: #003b54;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 20px 0;
+      border-bottom-right-radius: 20px;
+      height: 100vh;
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .profile img {
+      width: 80px;
+      border-radius: 50%;
+      background: #004d6d;
+      padding: 10px;
+    }
+
+    .profile span {
+      margin-top: 10px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0 20px;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 12px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      background-color: #00597f;
+    }
+
+    .nav-links a img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .main-content h1 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    .certificados-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .etapa-certificado {
+      background-color: #e0e0e0;
+      padding: 20px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 16px;
+      color: #555;
+      opacity: 0.8;
+      position: relative;
+    }
+
+    .etapa-certificado.ativo {
+      background-color: #ffffff;
+      color: #003b54;
+      font-weight: 600;
+      opacity: 1;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .etapa-certificado .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .etapa-certificado .info-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 17px;
+    }
+
+    .etapa-certificado .subinfo {
+      font-size: 13px;
+      margin-top: 4px;
+      color: #666;
+    }
+
+    .icone-certificado button {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #555;
+      transition: transform 0.2s ease;
+    }
+
+    .icone-certificado button:hover {
+      color: #1976d2;
+      transform: scale(1.1);
+    }
+
+    .etapa-certificado.locked .icone-certificado button {
+      cursor: not-allowed;
+      color: #aaa;
+      opacity: 0.5;
+    }
+
+    .etapa-certificado.locked::after {
+      content: "Conclua a etapa anterior para desbloquear";
+      position: absolute;
+      bottom: -20px;
+      left: 20px;
+      font-size: 12px;
+      color: #c62828;
+    }
+
+    @media (max-width: 700px) {
+      .main-content {
+        padding: 20px;
+      }
+
+      .etapa-certificado {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .icone-certificado {
+        align-self: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="https://img.icons8.com/ios-filled/100/ffffff/user-male-circle.png" alt="Perfil" />
+      <span>Aluno<br><small>aluno.ic25@uea.edu.br</small></span>
+    </div>
+    <nav class="nav-links">
+      <a href="home.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/home.png" /> Home</a>
+      <a href="forum.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/chat.png" /> Fórum</a>
+      <a href="aulas.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/classroom.png" /> Aulas</a>
+      <a href="exercicios.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/task.png" /> Exercícios</a>
+      <a href="certificados.html" class="active"><img src="https://img.icons8.com/ios-filled/24/ffffff/certificate.png" /> Certificados</a>
+      <a href="configuracoes.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/settings.png" /> Configurações</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <h1>Certificados</h1>
+    <div class="certificados-lista">
+      <div class="etapa-certificado ativo">
+        <div class="info">
+          <div class="info-title">
+            <i class="material-icons-outlined">check_circle</i>
+            Classes e Objetos
+          </div>
+          <div class="subinfo">Concluído em: 15/05/2025 · Carga horária: 20h</div>
+        </div>
+        <div class="icone-certificado">
+          <button aria-label="Baixar certificado de Classes e Objetos" onclick="alert('Baixando PDF de Classes e Objetos')">
+            <i class="material-icons-outlined">file_download</i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Etapas bloqueadas -->
+      <div class="etapa-certificado locked">
+        <div class="info">
+          <div class="info-title"><i class="material-icons-outlined">lock</i> Encapsulamento</div>
+          <div class="subinfo">Status: Pendente</div>
+        </div>
+        <div class="icone-certificado">
+          <button disabled aria-label="Certificado bloqueado"><i class="material-icons-outlined">file_download</i></button>
+        </div>
+      </div>
+
+      <div class="etapa-certificado locked">
+        <div class="info">
+          <div class="info-title"><i class="material-icons-outlined">lock</i> Herança</div>
+          <div class="subinfo">Status: Pendente</div>
+        </div>
+        <div class="icone-certificado">
+          <button disabled aria-label="Certificado bloqueado"><i class="material-icons-outlined">file_download</i></button>
+        </div>
+      </div>
+
+      <div class="etapa-certificado locked">
+        <div class="info">
+          <div class="info-title"><i class="material-icons-outlined">lock</i> Polimorfismo</div>
+          <div class="subinfo">Status: Pendente</div>
+        </div>
+        <div class="icone-certificado">
+          <button disabled aria-label="Certificado bloqueado"><i class="material-icons-outlined">file_download</i></button>
+        </div>
+      </div>
+
+      <div class="etapa-certificado locked">
+        <div class="info">
+          <div class="info-title"><i class="material-icons-outlined">lock</i> Abstração</div>
+          <div class="subinfo">Status: Pendente</div>
+        </div>
+        <div class="icone-certificado">
+          <button disabled aria-label="Certificado bloqueado"><i class="material-icons-outlined">file_download</i></button>
+        </div>
+      </div>
+
+      <div class="etapa-certificado locked">
+        <div class="info">
+          <div class="info-title"><i class="material-icons-outlined">lock</i> Interfaces</div>
+          <div class="subinfo">Status: Pendente</div>
+        </div>
+        <div class="icone-certificado">
+          <button disabled aria-label="Certificado bloqueado"><i class="material-icons-outlined">file_download</i></button>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

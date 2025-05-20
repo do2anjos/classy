@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fórum</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="home-container">
+    
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="https://img.icons8.com/ios-filled/100/ffffff/user-male-circle.png" alt="Perfil"/>
+        <span>
+          Aluno<br>
+          <small>aluno.ic25@uea.edu.br</small>
+        </span>
+      </div>
+      <nav class="nav-links">
+        <a href="home.html">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/home.png" style="margin-right: 8px; vertical-align: middle;" /> Home
+        </a>
+        <a href="forum.html" class="active">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/chat.png" style="margin-right: 8px; vertical-align: middle;" /> Fórum
+        </a>
+        <a href="aulas.html">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/classroom.png" style="margin-right: 8px; vertical-align: middle;" /> Aulas
+        </a>
+        <a href="exercicios.html">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/task.png" style="margin-right: 8px; vertical-align: middle;" /> Exercícios
+        </a>
+        <a href="certificados.html">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/certificate.png" style="margin-right: 8px; vertical-align: middle;" /> Certificados
+        </a>
+        <a href="configuracoes.html">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/settings.png" style="margin-right: 8px; vertical-align: middle;" /> Configurações
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="content">
+      <div class="forum-layout">
+
+        <!-- Área de Posts -->
+        <div class="forum-posts">
+          <div class="search-box">
+            <input type="text" placeholder="Pesquisar">
+          </div>
+
+          <h1>Fórum</h1>
+
+          <div class="grid-row">
+
+            <div class="card">
+              <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="https://img.icons8.com/ios-filled/50/003b54/user.png" style="width: 50px; height: 50px; background: #e0e0e0; border-radius: 50%; padding: 5px;"/>
+                <div>
+                  <strong>Álvaro</strong><br>
+                  <small>Há 1 hora</small>
+                  <p style="margin-top: 5px;">Aenean eu risus quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                </div>
+              </div>
+              <button class="email-btn" style="margin-top: 10px;">Responder</button>
+            </div>
+
+            <div class="card">
+              <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="https://img.icons8.com/ios-filled/50/003b54/user.png" style="width: 50px; height: 50px; background: #e0e0e0; border-radius: 50%; padding: 5px;"/>
+                <div>
+                  <strong>Bianca</strong><br>
+                  <small>Há 1 hora</small>
+                  <p style="margin-top: 5px;">Aenean eu risus quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                </div>
+              </div>
+              <button class="email-btn" style="margin-top: 10px;">Responder</button>
+            </div>
+
+            <div class="card">
+              <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="https://img.icons8.com/ios-filled/50/003b54/user.png" style="width: 50px; height: 50px; background: #e0e0e0; border-radius: 50%; padding: 5px;"/>
+                <div>
+                  <strong>Rui Araújo</strong><br>
+                  <small>Há 2 horas</small>
+                  <p style="margin-top: 5px;">Aenean eu risus quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                </div>
+              </div>
+              <button class="email-btn" style="margin-top: 10px;">Responder</button>
+            </div>
+
+          </div>
+        </div>
+
+        <aside class="forum-info">
+
+          <!-- Membros -->
+          <div class="info-card">
+            <h2>Membros</h2>
+            <input type="text" placeholder="Buscar membros">
+            <ul class="members-list">
+              <li><img src="https://img.icons8.com/ios-filled/30/003b54/user.png"/> Álvaro</li>
+              <li><img src="https://img.icons8.com/ios-filled/30/003b54/user.png"/> Bianca</li>
+              <li><img src="https://img.icons8.com/ios-filled/30/003b54/user.png"/> Rui Araújo</li>
+            </ul>
+          </div>
+
+          <!-- Categorias populares -->
+          <div class="info-card">
+            <h2>Categorias populares</h2>
+            <ul class="category-list">
+              <li>Perguntas gerais</li>
+              <li>Recomendações</li>
+              <li>Dúvidas comuns</li>
+            </ul>
+          </div>
+
+          <!-- Busca detalhada -->
+          <div class="info-card">
+            <h2>Busca detalhada</h2>
+            <input type="text" placeholder="Palavra-chave">
+            <select>
+              <option>Selecione...</option>
+              <option>Programação</option>
+              <option>Projetos Finais</option>
+            </select>
+            <div class="buttons-group">
+              <button class="email-btn">Buscar</button>
+              <button class="email-btn">Registrar apoio</button>
+              <button class="email-btn">Salvar</button>
+            </div>
+          </div>
+
+        </aside>
+

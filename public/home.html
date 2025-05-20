@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - Plataforma Educacional</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+    }
+    .home-container {
+      display: flex;
+    }
+    .sidebar {
+  width: 230px;
+  background-color: #003b54;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* <- Troque de center para stretch */
+  padding: 20px 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.sidebar .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.sidebar .profile img {
+  width: 80px;
+  border-radius: 50%;
+  background: #004d6d;
+  padding: 10px;
+}
+
+.sidebar .profile span {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+    .content {
+      flex: 1;
+      padding: 40px;
+    }
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .dashboard-header h2 {
+      font-size: 26px;
+      font-weight: bold;
+      color: #003b54;
+    }
+    .search-box {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 300px;
+    }
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .overview .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .progress-bar {
+      height: 8px;
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .progress-bar .progress {
+      height: 100%;
+      background-color: #008cc4;
+      width: 42%;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .horizontal-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .highlight-card {
+      flex: 1;
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .highlight-card h3 {
+      margin: 0;
+      font-size: 22px;
+      color: #003b54;
+    }
+    .highlight-card p {
+      color: #555;
+      margin-top: 10px;
+    }
+    .continue-button {
+      margin-top: 20px;
+      background-color: #008cc4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .notifications {
+      margin-bottom: 40px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .notifications h3 {
+      margin-top: 0;
+      color: #003b54;
+    }
+    .notifications ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .notifications li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .notifications li:last-child {
+      border-bottom: none;
+    }
+    .chart-container {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .profile {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .profile img {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+    .profile span {
+      display: block;
+    }
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 0;
+    }
+    .nav-links a.active,
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="home-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="https://img.icons8.com/ios-filled/100/ffffff/user-male-circle.png" alt="Perfil"/>
+        <span>
+          Aluno<br>
+          <small>aluno.ic25@uea.edu.br</small>
+        </span>
+      </div>
+      <nav class="nav-links">
+        <a href="home.html" class="active"><img src="https://img.icons8.com/ios-filled/24/ffffff/home.png" /> Home</a>
+        <a href="forum.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/chat.png" /> Fórum</a>
+        <a href="aulas.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/classroom.png" /> Aulas</a>
+        <a href="exercicios.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/task.png" /> Exercícios</a>
+        <a href="certificados.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/certificate.png" /> Certificados</a>
+        <a href="configuracoes.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/settings.png" /> Configurações</a>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="content">
+      <div class="dashboard-header">
+        <h2>Bem-vindo de volta, João!</h2>
+        <input type="text" class="search-box" placeholder="Pesquisar..."/>
+      </div>
+
+      <!-- Notificações -->
+      <div class="notifications">
+        <h3>Notificações</h3>
+        <ul>
+          <li>📢 Novo conteúdo disponível em "Programação Orientada a Objetos".</li>
+          <li>📅 Aula "Polimorfismo" agendada para amanhã às 10h.</li>
+          <li>🏆 Você ganhou uma medalha por completar 3 trilhas!</li>
+        </ul>
+      </div>
+
+      <!-- Visão geral -->
+      <div class="overview">
+        <div class="card">
+          <div class="card-title">Progresso na Trilha</div>
+          <div class="progress-bar"><div class="progress"></div></div>
+          <a href="aulas"><button class="continue-button">Continuar de onde parei</button></a>
+        </div>
+        <div class="card">
+          <div class="card-title">Exercícios Pendentes</div>
+          <p>3 atividades aguardando</p>
+        </div>
+        <div class="card">
+          <div class="card-title">XP Acumulado</div>
+          <p>1.280 XP</p>
+        </div>
+      </div>
+
+      <!-- Próxima aula -->
+      <div class="section">
+        <h3 class="section-title">Próxima Aula</h3>
+        <div class="highlight-card">
+          <h3>Fundamentos de Java</h3>
+          <p>Herança e Polimorfismo</p>
+          <p><strong>Hoje às 19h</strong></p>
+        </div>
+      </div>
+
+      <!-- Gráfico de progresso -->
+      <div class="chart-container">
+        <h3 style="color:#003b54; margin-top:0;">Progresso Semanal</h3>
+        <canvas id="progressChart" height="100"></canvas>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Chart.js - Progresso semanal
+    const ctx = document.getElementById('progressChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+        datasets: [{
+          label: 'XP ganho',
+          data: [50, 80, 30, 90, 60, 20, 0],
+          backgroundColor: '#008cc4'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
