@@ -148,213 +148,179 @@
       font-weight: bold;
       color: green;
     }
-.exercise-content {
-  flex: 1;
-  background: linear-gradient(to bottom right, #ffffff, #f9fbfd);
-  border-radius: 18px;
-  padding: 36px 28px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transition: box-shadow 0.3s ease;
-  max-width: 600px;
-  margin: auto;
-}
-
-/* Título da pergunta */
-.exercise-content h3 {
-  margin-bottom: 24px;
-  font-size: 22px;
-  color: #222;
-  line-height: 1.4;
-}
-
-/* Progresso (Ex: Exercício 2 de 10) */
-#progresso {
-  margin-bottom: 12px;
-  font-weight: bold;
-  color: #555;
-  font-size: 14px;
-}
-
-/* Botões das alternativas */
-.alternativas button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 18px;
-  margin-bottom: 12px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  width: 100%;
-  max-width: 460px;
-  height: 52px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-  transition: all 0.2s ease;
-  font-weight: normal;
-  color: #333;
-  text-align: left;
-}
-
-/* Garante que o texto não quebre */
-.alternativas button span {
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Ícone (✔️ ou ❌) sempre com espaço reservado */
-.alternativas button strong {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  font-size: 18px;
-  text-align: center;
-  line-height: 1;
-}
-
-/* Botões SEM ícone ainda assim reservam espaço */
-.alternativas button:not(.correta):not(.errada)::after {
-  content: '';
-  display: inline-block;
-  width: 24px;
-}
-
-/* Correta */
-.alternativas button.correta {
-  background-color: #e6f8ec;
-  border-color: #2e7d32;
-  color: #2e7d32;
-  font-weight: bold;
-}
-
-/* Errada */
-.alternativas button.errada {
-  background-color: #fdebea;
-  border-color: #c62828;
-  color: #c62828;
-  font-weight: bold;
-}
-
-
-.alternativas button.errada span {
-  flex: 1;
-}
-
-.alternativas button.errada strong {
-  font-size: 18px;
-}
-
-/* Feedback explicativo */
-#feedback {
-  display: none; /* Oculto por padrão */
-  margin-top: 24px;
-  padding: 16px;
-  background-color: #f9f9f9;
-  border-left: 4px solid #2196f3;
-  border-radius: 8px;
-  color: #333;
-  font-size: 14.5px;
-  text-align: left;
-  max-width: 480px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-/* Animação leve de entrada */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Botões Voltar/Próximo */
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  width: 100%;
-  max-width: 440px;
-}
-
-.nav-buttons button {
-  background-color: #004b63;
-  color: white;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.nav-buttons button:hover {
-  background-color: #00688b;
-}
-
-
-/* Exercício travado (progressivo) */
-.travado {
-  color: #aaa;
-  pointer-events: none;
-}
-.travado::before {
-  background-color: #bbb !important;
-}
-
-#progresso-barra {
-  width: 100%;
-  max-width: 600px;
-  height: 8px;
-  background-color: #e0e0e0;
-  border-radius: 4px;
-  margin: 0 auto 24px auto;
-  overflow: hidden;
-}
-
-#progresso-barra .preenchimento {
-  height: 100%;
-  width: 0%;
-  background-color: #2196f3;
-  transition: width 0.3s ease;
-  border-radius: 4px;
-}
-
-.botao-ranking {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 10px 22px;
-  background-color: #004b63;
-  color: white;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  height: 40px;
-}
-
-.botao-ranking:hover {
-  background-color: #00688b;
-}
-
-.botao-ranking img {
-  width: 20px;
-  height: 20px;
-  filter: brightness(0) invert(1);
-}
-
+    .exercise-content {
+      flex: 1;
+      background: linear-gradient(to bottom right, #ffffff, #f9fbfd);
+      border-radius: 18px;
+      padding: 36px 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+      max-width: 600px;
+      margin: auto;
+    }
+    .exercise-content h3 {
+      margin-bottom: 24px;
+      font-size: 22px;
+      color: #222;
+      line-height: 1.4;
+    }
+    #progresso {
+      margin-bottom: 12px;
+      font-weight: bold;
+      color: #555;
+      font-size: 14px;
+    }
+    .alternativas button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      width: 100%;
+      max-width: 460px;
+      height: 52px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      transition: all 0.2s ease;
+      font-weight: normal;
+      color: #333;
+      text-align: left;
+    }
+    .alternativas button span {
+    flex: 1;
+    /* Remova ou ajuste estas propriedades: */
+    white-space: normal; /* Permite quebra de linha */
+    overflow: visible;   /* Mostra todo o texto */
+    text-overflow: clip; /* Remove as reticências */
+    padding-right: 8px;  /* Espaço entre texto e ícone */
+  }
+    .alternativas button strong {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1;
+    }
+    .alternativas button:not(.correta):not(.errada)::after {
+      content: '';
+      display: inline-block;
+      width: 24px;
+    }
+    .alternativas button.correta {
+      background-color: #e6f8ec;
+      border-color: #2e7d32;
+      color: #2e7d32;
+      font-weight: bold;
+    }
+    .alternativas button.errada {
+      background-color: #fdebea;
+      border-color: #c62828;
+      color: #c62828;
+      font-weight: bold;
+    }
+    .alternativas button.errada span {
+      flex: 1;
+    }
+    .alternativas button.errada strong {
+      font-size: 18px;
+    }
+    #feedback {
+      display: none;
+      margin-top: 24px;
+      padding: 16px;
+      background-color: #f9f9f9;
+      border-left: 4px solid #2196f3;
+      border-radius: 8px;
+      color: #333;
+      font-size: 14.5px;
+      text-align: left;
+      max-width: 480px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      width: 100%;
+      max-width: 440px;
+    }
+    .nav-buttons button {
+      background-color: #004b63;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-buttons button:hover {
+      background-color: #00688b;
+    }
+    .travado {
+      color: #aaa;
+      pointer-events: none;
+    }
+    .travado::before {
+      background-color: #bbb !important;
+    }
+    #progresso-barra {
+      width: 100%;
+      max-width: 600px;
+      height: 8px;
+      background-color: #e0e0e0;
+      border-radius: 4px;
+      margin: 0 auto 24px auto;
+      overflow: hidden;
+    }
+    #progresso-barra .preenchimento {
+      height: 100%;
+      width: 0%;
+      background-color: #2196f3;
+      transition: width 0.3s ease;
+      border-radius: 4px;
+    }
+    .botao-ranking {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 22px;
+      background-color: #004b63;
+      color: white;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      height: 40px;
+    }
+    .botao-ranking:hover {
+      background-color: #00688b;
+    }
+    .botao-ranking img {
+      width: 20px;
+      height: 20px;
+      filter: brightness(0) invert(1);
+    }
   </style>
 </head>
 <body>
@@ -362,7 +328,7 @@
     <aside class="sidebar">
       <div class="profile">
         <img src="https://img.icons8.com/ios-filled/100/ffffff/user-male-circle.png" alt="Perfil"/>
-        <span>Aluno<br><small>aluno.ic25@uea.edu.br</small></span>
+        <span>Aluno<br><small>aluno@exemplo.com</small></span>
       </div>
       <nav class="nav-links">
         <a href="home.html" title="Início"><img src="https://img.icons8.com/ios-filled/24/ffffff/home.png" /> Home</a>
@@ -373,34 +339,34 @@
         <a href="configuracoes.html" title="Configurações do Sistema"><img src="https://img.icons8.com/ios-filled/24/ffffff/settings.png" /> Configurações</a>
       </nav>
     </aside>
-   <main class="exercise-section">
-  <div class="trilha-container" id="trilha-container">
-    <!-- Etapas serão geradas dinamicamente via JS -->
-  </div>
-  <div style="flex: 1;">
-    <div id="progresso-barra">
-      <div class="preenchimento"></div>
-    </div>
-    <div id="acertos-info" style="text-align: center; margin-bottom: 20px; font-weight: bold; color: #333;">
-      Acertos: 0 de 10
-    </div>
-    <div class="exercise-content">
-      <div id="progresso" style="margin-bottom: 10px; font-weight: bold; color: #555;"></div>
-      <div id="pergunta">
-        <h3>Selecione um exercício à esquerda para começar</h3>
+    <main class="exercise-section">
+      <div class="trilha-container" id="trilha-container">
+        <!-- Etapas serão geradas dinamicamente via JS -->
       </div>
-      <div class="nav-buttons">
-        <button onclick="navegar(-1)">◀ Voltar</button>
-        <a href="ranking.html" class="botao-ranking">
-    <img src="https://img.icons8.com/ios-filled/20/ffffff/combo-chart--v2.png" alt="Ranking">
-    <span>Ranking</span>
-  </a>
-        <button onclick="navegar(1)">Próximo ▶</button>
+      <div style="flex: 1;">
+        <div id="progresso-barra">
+          <div class="preenchimento"></div>
+        </div>
+        <div id="acertos-info" style="text-align: center; margin-bottom: 20px; font-weight: bold; color: #333;">
+          Acertos: 0 de 10
+        </div>
+        <div class="exercise-content">
+          <div id="progresso" style="margin-bottom: 10px; font-weight: bold; color: #555;"></div>
+          <div id="pergunta">
+            <h3>Selecione um exercício à esquerda para começar</h3>
+          </div>
+          <div class="alternativas"></div>
+          <div id="feedback" role="alert" style="margin-top: 16px; font-weight: bold; display: none;"></div>
+          <div class="nav-buttons">
+            <button onclick="navegar(-1)">◀ Voltar</button>
+            <a href="ranking.html" class="botao-ranking">
+              <img src="https://img.icons8.com/ios-filled/20/ffffff/combo-chart--v2.png" alt="Ranking">
+              <span>Ranking</span>
+            </a>
+            <button onclick="navegar(1)">Próximo ▶</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</main>
-
     </main>
   </div>
 <script>
@@ -509,95 +475,90 @@
     atual = n;
     const p = perguntas[n];
     const progresso = document.getElementById('progresso');
-    progresso.innerText = `Exercício ${n} de 10`;
+    progresso.innerText = `Exercício ${n} de ${Object.keys(perguntas).length}`; // Total dinâmico
 
-    const opcoesHTML = p.opcoes.map((opt, i) =>
-    `<button onclick="responder(${n}, ${i}, this)" tabindex="0"><span>${opt}</span><strong></strong></button>`
-  ).join('');
+     // Gera alternativas com letras (a, b, c, d)
+  const opcoesHTML = p.opcoes.map((opt, i) => `
+      <button onclick="responder(${n}, ${i}, this)" tabindex="0">
+        <span>${String.fromCharCode(97 + i)}) ${opt}</span>
+        <strong></strong>
+      </button>
+    `).join('');
 
+    // Atualiza o HTML da pergunta
     document.getElementById('pergunta').innerHTML = `
-      <h3>${p.texto}</h3>
-      <div class="alternativas">${opcoesHTML}</div>
-      <div id="feedback" role="alert" style="margin-top: 16px; font-weight: bold; display: none;"></div>`;
+    <h3>Questão ${n}: ${p.texto}</h3>
+    <div class="alternativas">${opcoesHTML}</div>
+  `;
 
     document.querySelectorAll('.conteudo-etapa li').forEach(li => li.classList.remove('respondido'));
     if (el) el.classList.add('respondido');
 
-    // Atualiza barra de progresso
-    const porcentagem = (n / Object.keys(perguntas).length) * 100;
-    document.querySelector('#progresso-barra .preenchimento').style.width = `${porcentagem}%`;
+    // Dentro de mostrarExercicio():
+  const porcentagem = (n / Object.keys(perguntas).length) * 100;
+  document.querySelector('#progresso-barra .preenchimento').style.width = `${porcentagem}%`;
   }
 
   function responder(id, opcao, botao) {
-      const correta = perguntas[id].correta;
-      const botoes = botao.parentElement.querySelectorAll('button');
+    const correta = perguntas[id].correta;
+    const botoes = botao.parentElement.querySelectorAll('button');
 
-      // Desabilita todas as alternativas
-      // Limpa e atualiza os botões com base na resposta
     botoes.forEach((b, i) => {
       b.disabled = true;
       b.classList.remove('correta', 'errada');
 
-      // Garante que o conteúdo original esteja limpo
-      const texto = perguntas[id].opcoes[i];
+      // Mantém a letra da alternativa ao atualizar o botão
+      const textoOriginal = perguntas[id].opcoes[i];
+      const letra = String.fromCharCode(97 + i);
+      const textoComLetra = `${letra}) ${textoOriginal}`;
 
-      // Botão correto
       if (i === correta) {
         b.classList.add('correta');
-        b.innerHTML = `<span>${texto}</span><strong>✔️</strong>`;
+        b.innerHTML = `<span>${textoComLetra}</span><strong>✔️</strong>`;
       }
 
-      // Botão errado (escolhido)
       if (i === opcao && i !== correta) {
         b.classList.add('errada');
-        b.innerHTML = `<span>${texto}</span><strong>❌</strong>`;
+        b.innerHTML = `<span>${textoComLetra}</span><strong>❌</strong>`;
       }
-
     });
 
+    const f = document.getElementById('feedback');
+    f.style.display = 'block';
 
-      // Referência ao container de feedback
-      const f = document.getElementById('feedback');
-      f.style.display = 'block';
+    if (opcao === correta) {
+      f.innerHTML = `
+        ✅ <strong>Você acertou!</strong><br><br>
+        📘 <strong>Explicação:</strong> ${perguntas[id].explicacao}
+      `;
+      acertos++;
+      document.getElementById('acertos-info').innerText = `Acertos: ${acertos} de 10`;
 
-      if (opcao === correta) {
-        f.innerHTML = `
-          ✅ <strong>Você acertou!</strong><br><br>
-          📘 <strong>Explicação:</strong> ${perguntas[id].explicacao}
-        `;
-        acertos++;
-
-        // Atualiza o contador de acertos
-        document.getElementById('acertos-info').innerText = `Acertos: ${acertos} de 10`;
-
-        if (id === 10) {
-          setTimeout(() => {
-            alert(`🎉 Parabéns! Você concluiu todos os exercícios.\n\n✅ Acertos: ${acertos} de 10.`);
-          }, 600);
-        }
-
-        // Desbloqueia próxima questão se houver
-        const proximo = document.getElementById(`ex${id + 1}`);
-        if (proximo) {
-          proximo.classList.remove('travado');
-          proximo.setAttribute('onclick', `mostrarExercicio(${id + 1}, this)`);
-        }
-
-      } else {
-        f.innerHTML = `
-          ❌ <strong>Resposta incorreta.</strong><br>
-          ✅ A correta é: <strong>${perguntas[id].opcoes[correta]}</strong><br><br>
-          💡 <strong>Dica:</strong> ${perguntas[id].dica}
-        `;
+      if (id === 10) {
+        setTimeout(() => {
+          alert(`🎉 Parabéns! Você concluiu todos os exercícios.\n\n✅ Acertos: ${acertos} de 10.`);
+        }, 600);
       }
 
-      // Marca como respondida
-      respondidas[id] = true;
-
-      if (Object.keys(respondidas).length === Object.keys(perguntas).length) {
-        desbloquearProximaEtapa();
+      const proximo = document.getElementById(`ex${id + 1}`);
+      if (proximo) {
+        proximo.classList.remove('travado');
+        proximo.setAttribute('onclick', `mostrarExercicio(${id + 1}, this)`);
       }
+    } else {
+      const letraCorreta = String.fromCharCode(97 + correta);
+      f.innerHTML = `
+        ❌ <strong>Resposta incorreta.</strong><br>
+        ✅ A correta é: <strong>${letraCorreta}) ${perguntas[id].opcoes[correta]}</strong><br><br>
+        💡 <strong>Dica:</strong> ${perguntas[id].dica}
+      `;
     }
+
+    respondidas[id] = true;
+    if (Object.keys(respondidas).length === Object.keys(perguntas).length) {
+      desbloquearProximaEtapa();
+    }
+  }
 
   function desbloquearProximaEtapa() {
     const etapas = document.querySelectorAll('.etapa');
@@ -611,6 +572,7 @@
     if (novo >= 1 && novo <= 10) mostrarExercicio(novo);
   }
 
+  // Inicializa a trilha ao carregar a página
   criarTrilha();
 </script>
 
